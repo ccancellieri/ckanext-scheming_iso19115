@@ -1,0 +1,361 @@
+scheming_version: 1
+dataset_type: iso
+about: Metadata schema for data.wa.gov.au
+about_url: http://github.com/florianm/ckanext-scheming
+#######################################
+#######################################
+# DATASET FIELDS
+dataset_fields:
+################################
+################################
+################################
+- field_name: title
+  label: Title
+  display_property: dcat:Dataset/dct:title
+  validators: if_empty_same_as(name) unicode
+  form_snippet: large_text.html
+  form_attrs:
+    data-module: slug-preview-target
+  form_placeholder: eg. A descriptive title
+
+- field_name: name
+  label: URL
+  validators: not_empty unicode name_validator package_name_validator
+  form_snippet: slug.html
+  form_placeholder: eg. my-dataset
+
+- field_name: notes
+  label: Description
+  display_property: dcat:Dataset/dct:description
+  form_snippet: markdown.html
+  form_placeholder: eg. Some useful notes about the data
+  help_text: Descriptive information about the dataset. Can also include further information  or caveats pertaining to the data.
+
+- field_name: owner_org
+  label: Organization
+  preset: dataset_organization
+
+- field_name: contactPoint
+  label: Contact Point
+  help_text: This property contains contact information that can be used for sending comments about the Dataset.
+
+- field_name: distribution
+  label: Distribution
+  help_text: This property links the Dataset to an available Distribution.
+
+- field_name: keyword
+  label: Keyword
+  help_text: This property contains a keyword or tag describing the Dataset.
+
+- field_name: publisher
+  label: Publisher
+  help_text: This property refers to an Agent (organisation) responsible for making the Dataset available.
+
+- field_name: temporal
+  label: Temporal
+  help_text: This property refers to a temporal period that the Dataset covers.
+
+# Optional properties for Dataset
+# https://semiceu.github.io/GeoDCAT-AP/releases/#optional-properties-for-dataset
+
+- field_name: accessRights
+  label: Access rights
+  help_text: This property refers to information that indicates whether the Dataset is open data, has access restrictions or is not public.
+
+- field_name: conformsTo
+  label: conforms To
+  help_text: This property refers to an implementing rule or other specification.
+
+- field_name: created
+  label: Created
+  preset: date
+  help_text: This property contains the date on which the Dataset has been first created.
+
+- field_name: page
+  label: Page
+  help_text: This property refers to a page or document about this Dataset.
+
+- field_name: accrualPeriodicity
+  label: Accrual periodicity
+  help_text: This property refers to the frequency at which the Dataset is updated.
+
+- field_name: hasVersion
+  label: Has version
+  help_text: This property refers to a related Dataset that is a version, edition, or adaptation of the described Dataset.
+
+- field_name: identifier
+  label: Identifier
+  help_text: This property contains the main identifier for the Dataset, e.g., the URI or other unique identifier in the context of the Catalogue.
+
+- field_name: isReferencedBy
+  label: Is Referenced by
+  help_text: This property is about a related resource, such as a publication, that references, cites, or otherwise points to the Dataset.
+
+- field_name: isVersionOf
+  label: Is Version of
+  help_text: This property refers to a related Dataset of which the described Dataset is a version, edition, or adaptation.
+
+- field_name: landingPage
+  label: landing Page
+  help_text: This property refers to a Web page that provides access to the Dataset, its Distributions and/or additional information. It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator.
+
+- field_name: language
+  label: Language
+  help_text: This property refers to a language of the Dataset. This property can be repeated if there are multiple languages in the Dataset
+
+- field_name: identifier
+  label: Identifier
+  help_text: "This property refers to a secondary identifier of the Dataset, such as MAST/ADS MAST-ADS, [DataCite], [DOI], [EZID] or [W3ID]."
+
+- field_name: provenance
+  label: Provenance
+  help_text: This property contains a statement about the lineage of a Dataset.
+
+- field_name: qualifiedAttribution
+  label: Qualified attribution
+  help_text: This property refers to a link to an Agent having some form of responsibility for the Dataset.
+
+- field_name: qualifiedRelation
+  label: Qualified relation
+  help_text: This property provides a link to a description of a relationship with another resource.
+
+- field_name: conformsTo
+  label: conformsTo
+  help_text: "This property SHOULD be used to specify the reference system used in the Dataset. Spatial reference systems SHOULD be specified by using the corresponding URIs from the “EPSG coordinate reference systems” register operated by OGC [OGC-EPSG]."
+
+- field_name: relation
+  label: Relation
+  help_text: This property refers to a related resource.
+
+- field_name: issued
+  label: issued
+  preset: date
+  help_text: This property contains the date of formal issuance (e.g., publication) of the Dataset.
+
+- field_name: rightsHolder
+  label: Rights holder
+  help_text: This property refers to an Agent (organisation) holding rights on the Dataset.
+
+- field_name: sample
+  label: Sample
+  help_text: This property refers to a sample Distribution of the Dataset.
+
+- field_name: source
+  label: Source
+  help_text: This property refers to a related Dataset from which the described Dataset is derived.
+
+- field_name: hasQualityMeasurement
+  label: Has quality measurement
+  help_text: "Refers to the performed quality measurements. In GeoDCAT-AP, this property is used to specify 'spatial resolution', as defined in [INSPIRE-MD-REG], [ISO-19115], and [ISO-19115-1]."
+
+- field_name: spatialResolutionInMeters
+  label: Spatial resolution in meters
+  help_text: This property refers to the minimum spatial separation resolvable in a Dataset, measured in metres.
+
+- field_name: comment
+  label: Comment
+  help_text: This property MAY be used to express spatial resolution as free-text, when it cannot be specified via dqv:hasQualityMeasurement and dcat:spatialResolutionInMeters.
+
+- field_name: temporalResolution
+  label: Temporal Resolution
+  help_text: This property refers to the minimum time period resolvable in the Dataset.
+
+#- field_name: type
+#  label: Type
+#  help_text: "In GeoDCAT-AP, this property SHOULD take as value one of the URIs of the 'Resource types' code list operated by the INSPIRE Registry [INSPIRE-RT]. For Datasets, the possible values are those corresponding to "Spatial data set" and "Spatial data set series."
+
+- field_name: modified
+  label: Modified
+  help_text: This property contains the most recent date on which the Dataset was changed or modified.
+
+- field_name: versionInfo
+  label: Version info
+  help_text: This property contains a version number or other version designation of the Dataset.
+
+- field_name: versionNotes
+  label: version notes
+  help_text: This property contains a description of the differences between this version and a previous version of the Dataset. This property can be repeated for parallel language versions of the version notes
+
+- field_name: wasGeneratedBy
+  label: Was benerated by
+  help_text: This property refers to an Activity that generated, or provides the business context for, the creation of the Dataset.
+
+- field_name: wasUsedBy
+  label: Was used by
+  help_text: This property refers to an Activity that used the Dataset. In GeoDCAT-AP, this property MAY be used to specify a testing Activity over a Dataset, against a given Standard, producing as output a conformance degree.
+
+- field_name: custodian
+  label: Custodian
+  help_text: Party that accepts accountability and responsibility for the data and ensures appropriate care and maintenance of the resource [ISO-19115].
+
+- field_name: distributor
+  label: Distributor
+  help_text: Party who distributes the resource [ISO-19115].
+
+- field_name: originator
+  label: Originator
+  help_text: Party who created the resource [ISO-19115].
+
+- field_name: principalInvestigator
+  label: Principal investigator
+  help_text: Key party responsible for gathering information and conducting research [ISO-19115].
+
+- field_name: processor
+  label: Processor
+  help_text: Party who has processed the data in a manner such that the resource has been modified [ISO-19115].
+
+- field_name: resourceProvider
+  label: Resource Provider
+  help_text: Party that supplies the resource [ISO-19115].
+
+- field_name: user
+  label: User
+  help_text: Party who uses the resource [ISO-19115].
+
+
+#######################################
+#######################################
+# RESOURCE FIELDS
+resource_fields:
+################################
+################################
+################################
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Name
+  form_placeholder: eg. Observations of X at Y
+
+- field_name: accessURL
+  label: Access URL
+  help_text: For INSPIRE metadata, this property SHOULD be used with the URIs of the "Limitations on public access" code list operated by the INSPIRE Registry [INSPIRE-LPA].
+
+- field_name: availability
+  label: Availability
+  help_text: This property indicates how long it is planned to keep the Distribution of the Dataset available.
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Some useful notes about the resource
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete
+
+- field_name: license
+  label: License
+  preset: select
+  help_text: License definitions and additional information can be found at http://opendefinition.org/
+  choices:
+  - value:
+    label: notspecified
+  - value: https://opendefinition.org/licenses/against-drm
+    label: Against DRM
+  - value: https://creativecommons.org/licenses/by/3.0/igo
+    label: Creative Commons Attribution 3.0 IGO
+  - value: https://creativecommons.org/licenses/by-nc-sa/3.0/igo
+    label: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO
+  - value: https://creativecommons.org/licenses/by-sa/3.0/igo
+    label: Creative Commons Attribution-ShareAlike 3.0 IGO
+  - value: https://creativecommons.org/licenses/by/4.0/
+    label: Creative Commons Attribution 4.0
+  - value: https://creativecommons.org/licenses/by-sa/4.0/
+    label: Creative Commons Attribution Share-Alike 4.0
+  - value: https://creativecommons.org/publicdomain/zero/1.0/
+    label: CC0 1.0
+  - value: https://opendefinition.org/licenses/dsl
+    label: Design Science License
+  - value: https://opendefinition.org/licenses/fal
+    label: Free Art License 1.3
+  - value: https://opendefinition.org/licenses/gfdl
+    label: GNU Free Documentation License 1.3 with no cover texts and no invariant sections
+  - value: https://opensource.org/licenses/MirOS
+    label: MirOS Licence
+  - value: https://opendefinition.org/licenses/odc-by
+    label: Open Data Commons Attribution License 1.0
+  - value: https://opendefinition.org/licenses/odc-odbl
+    label: Open Data Commons Open Database License 1.0
+  - value: https://open.canada.ca/en/open-government-licence-canada
+    label: Open Government License 2.0 (Canada)
+  - value: https://opendefinition.org/licenses/odc-by
+    label: Open Data Commons Attribution License 1.0
+  - value: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/
+    label: Open Government Licence 2.0 (United Kingdom)
+  - value: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+    label: Open Government Licence 3.0 (United Kingdom)
+  - value: https://opendefinition.org/licenses/odc-pddl
+    label: Open Data Commons Public Domain Dedication and Licence 1.0
+  - value: https://opendefinition.org/licenses/tcl
+    label: Talis Community License
+  - value: https://web.archive.org/web/20131009082944/http://www.hesa.ac.uk/index.php?option=com_content&task=view&id=2619&Itemid=209
+    label: Higher Education Statistics Agency Copyright with data.gov.uk rights
+  - value:
+    label: Local Authority Copyright with data.gov.uk rights
+  - value:
+    label: Other (Open)
+  - value:
+    label: Other (Public Domain)
+  - value:
+    label: UK Crown Copyright with data.gov.uk rights
+
+- field_name: accessRights
+  label: Access rights
+  help_text: This property contains a URL that gives access to a Distribution of the Dataset. The resource at the access URL may contain information about how to get the Distribution.
+
+- field_name: accessService
+  label: Access Service
+  help_text: This property refers to a Data Service that gives access to the Distribution of the Dataset.
+
+- field_name: downloadURL
+  label: Download URL
+  help_text: This property contains a URL that is a direct link to a downloadable file in a given format.
+
+- field_name: hasPolicy
+  label: Has policy
+  help_text: This property contains a URL that is a direct link to a downloadable file in a given format.
+
+- field_name: language
+  label: Language
+  preset: multiple_checkbox
+  choices:
+  - value: ARA
+    label: Arabic
+  - value: ZHO
+    label: Chinese
+  - value: ENG
+    label: English
+  - value: FRA
+    label: French
+  - value: RUS
+    label: Russian
+  - value: SPA
+    label: Spanish
+
+- field_name: representationTechnique
+  label: Representation technique
+  help_text: In GeoDCAT-AP, this property SHOULD be used to express the spatial representation type (grid, vector, tin), by using the URIs of the corresponding code list operated by the INSPIRE Registry [INSPIRE-SRT].
+
+- field_name: conformsTo
+  label: Conforms to
+  help_text: This property refers to an established schema to which the described Distribution conforms.
+
+
+- field_name: rights
+  label: Rights
+  help_text: This property refers to a statement that specifies rights associated with the Distribution.
+
+- field_name: hasQualityMeasuremen
+  label: Has quality measuremen
+  help_text: "In GeoDCAT-AP, this property is used to specify 'spatial resolution', as defined in [INSPIRE-MD-REG], [ISO-19115], and [ISO-19115-1]."
+
+- field_name: spatialResolutionInMeters
+  label: Spatial resolution in meters
+  help_text: This property refers to the minimum spatial separation resolvable in a Distribution, measured in metres.
+
+- field_name: temporalResolution
+  label: Temporal resolution
+  help_text: This property refers to the minimum time period resolvable in the Distribution.
