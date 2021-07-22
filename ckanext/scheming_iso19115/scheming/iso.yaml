@@ -41,91 +41,93 @@ dataset_fields:
 
 - field_name: distribution
   label: Distribution
+  preset: multiple_text
   help_text: This property links the Dataset to an available Distribution.
 
 - field_name: keyword
   label: Keyword
+  preset: multiple_text
   help_text: This property contains a keyword or tag describing the Dataset.
 
 - field_name: publisher
   label: Publisher
   help_text: This property refers to an Agent (organisation) responsible for making the Dataset available.
 
-- field_name: temporal
-  label: Temporal
-  help_text: This property refers to a temporal period that the Dataset covers.
-
 # Optional properties for Dataset
 # https://semiceu.github.io/GeoDCAT-AP/releases/#optional-properties-for-dataset
 
-- field_name: accessRights
-  label: Access rights
-  help_text: This property refers to information that indicates whether the Dataset is open data, has access restrictions or is not public.
+#- field_name: accessRights
+#  label: Access rights
+#  help_text: This property refers to information that indicates whether the Dataset is open data, has access restrictions or is not public.
 
 - field_name: conformsTo
   label: conforms To
   help_text: This property refers to an implementing rule or other specification.
 
-- field_name: created
-  label: Created
-  preset: date
-  help_text: This property contains the date on which the Dataset has been first created.
-
-- field_name: page
-  label: Page
-  help_text: This property refers to a page or document about this Dataset.
-
 - field_name: accrualPeriodicity
   label: Accrual periodicity
   help_text: This property refers to the frequency at which the Dataset is updated.
 
-- field_name: hasVersion
-  label: Has version
-  help_text: This property refers to a related Dataset that is a version, edition, or adaptation of the described Dataset.
+#- field_name: hasVersion
+#  label: Has version
+#  help_text: This property refers to a related Dataset that is a version, edition, or adaptation of the described Dataset.
 
 - field_name: identifier
   label: Identifier
+  validators: url_validator ignore_missing
   help_text: This property contains the main identifier for the Dataset, e.g., the URI or other unique identifier in the context of the Catalogue.
 
 - field_name: isReferencedBy
   label: Is Referenced by
+  preset: multiple_text
   help_text: This property is about a related resource, such as a publication, that references, cites, or otherwise points to the Dataset.
 
-- field_name: isVersionOf
-  label: Is Version of
-  help_text: This property refers to a related Dataset of which the described Dataset is a version, edition, or adaptation.
+#- field_name: isVersionOf
+#  label: Is Version of
+#  help_text: This property refers to a related Dataset of which the described Dataset is a version, edition, or adaptation.
 
 - field_name: landingPage
   label: landing Page
+  preset: multiple_text
   help_text: This property refers to a Web page that provides access to the Dataset, its Distributions and/or additional information. It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator.
 
 - field_name: language
   label: Language
-  help_text: This property refers to a language of the Dataset. This property can be repeated if there are multiple languages in the Dataset
-
-- field_name: identifier
-  label: Identifier
-  help_text: "This property refers to a secondary identifier of the Dataset, such as MAST/ADS MAST-ADS, [DataCite], [DOI], [EZID] or [W3ID]."
+  preset: multiple_checkbox
+  choices:
+  - value: ARA
+    label: Arabic
+  - value: ZHO
+    label: Chinese
+  - value: ENG
+    label: English
+  - value: FRA
+    label: French
+  - value: RUS
+    label: Russian
+  - value: SPA
+    label: Spanish
 
 - field_name: provenance
   label: Provenance
   help_text: This property contains a statement about the lineage of a Dataset.
 
-- field_name: qualifiedAttribution
-  label: Qualified attribution
-  help_text: This property refers to a link to an Agent having some form of responsibility for the Dataset.
+#- field_name: qualifiedAttribution
+#  label: Qualified attribution
+#  help_text: This property refers to a link to an Agent having some form of responsibility for the Dataset.
 
-- field_name: qualifiedRelation
-  label: Qualified relation
-  help_text: This property provides a link to a description of a relationship with another resource.
+#- field_name: qualifiedRelation
+#  label: Qualified relation
+#  help_text: This property provides a link to a description of a relationship with another resource.
 
 - field_name: conformsTo
   label: conformsTo
+  preset: multiple_text
   help_text: "This property SHOULD be used to specify the reference system used in the Dataset. Spatial reference systems SHOULD be specified by using the corresponding URIs from the “EPSG coordinate reference systems” register operated by OGC [OGC-EPSG]."
 
-- field_name: relation
-  label: Relation
-  help_text: This property refers to a related resource.
+#- field_name: relation
+#  label: Relation
+#  help_text: This property refers to a related resource.
 
 - field_name: issued
   label: issued
@@ -134,35 +136,35 @@ dataset_fields:
 
 - field_name: rightsHolder
   label: Rights holder
+  preset: multiple_text
   help_text: This property refers to an Agent (organisation) holding rights on the Dataset.
 
 - field_name: sample
   label: Sample
+  preset: multiple_text
   help_text: This property refers to a sample Distribution of the Dataset.
 
 - field_name: source
   label: Source
+  preset: multiple_text
   help_text: This property refers to a related Dataset from which the described Dataset is derived.
 
-- field_name: hasQualityMeasurement
-  label: Has quality measurement
-  help_text: "Refers to the performed quality measurements. In GeoDCAT-AP, this property is used to specify 'spatial resolution', as defined in [INSPIRE-MD-REG], [ISO-19115], and [ISO-19115-1]."
+#- field_name: hasQualityMeasurement
+#  label: Has quality measurement
+#  help_text: "Refers to the performed quality measurements. In GeoDCAT-AP, this property is used to specify 'spatial resolution', as defined in [INSPIRE-MD-REG], [ISO-19115], and [ISO-19115-1]."
 
 - field_name: spatialResolutionInMeters
   label: Spatial resolution in meters
   help_text: This property refers to the minimum spatial separation resolvable in a Dataset, measured in metres.
 
-- field_name: comment
-  label: Comment
-  help_text: This property MAY be used to express spatial resolution as free-text, when it cannot be specified via dqv:hasQualityMeasurement and dcat:spatialResolutionInMeters.
+- field_name: temporal
+  label: Temporal
+  help_text: This property refers to a temporal period that the Dataset covers.
 
 - field_name: temporalResolution
   label: Temporal Resolution
+  preset: multiple_text
   help_text: This property refers to the minimum time period resolvable in the Dataset.
-
-#- field_name: type
-#  label: Type
-#  help_text: "In GeoDCAT-AP, this property SHOULD take as value one of the URIs of the 'Resource types' code list operated by the INSPIRE Registry [INSPIRE-RT]. For Datasets, the possible values are those corresponding to "Spatial data set" and "Spatial data set series."
 
 - field_name: modified
   label: Modified
@@ -177,7 +179,7 @@ dataset_fields:
   help_text: This property contains a description of the differences between this version and a previous version of the Dataset. This property can be repeated for parallel language versions of the version notes
 
 - field_name: wasGeneratedBy
-  label: Was benerated by
+  label: Was generated by
   help_text: This property refers to an Activity that generated, or provides the business context for, the creation of the Dataset.
 
 - field_name: wasUsedBy
@@ -208,9 +210,6 @@ dataset_fields:
   label: Resource Provider
   help_text: Party that supplies the resource [ISO-19115].
 
-- field_name: user
-  label: User
-  help_text: Party who uses the resource [ISO-19115].
 
 
 #######################################
@@ -229,9 +228,9 @@ resource_fields:
   label: Name
   form_placeholder: eg. Observations of X at Y
 
-- field_name: accessURL
-  label: Access URL
-  help_text: For INSPIRE metadata, this property SHOULD be used with the URIs of the "Limitations on public access" code list operated by the INSPIRE Registry [INSPIRE-LPA].
+#- field_name: accessURL
+#  label: Access URL
+#  help_text: For INSPIRE metadata, this property SHOULD be used with the URIs of the "Limitations on public access" code list operated by the INSPIRE Registry [INSPIRE-LPA].
 
 - field_name: availability
   label: Availability
@@ -302,16 +301,17 @@ resource_fields:
   - value:
     label: UK Crown Copyright with data.gov.uk rights
 
-- field_name: accessRights
-  label: Access rights
-  help_text: This property contains a URL that gives access to a Distribution of the Dataset. The resource at the access URL may contain information about how to get the Distribution.
+#- field_name: accessRights
+#  label: Access rights
+#  help_text: This property contains a URL that gives access to a Distribution of the Dataset. The resource at the access URL may contain information about how to get the Distribution.
 
-- field_name: accessService
-  label: Access Service
-  help_text: This property refers to a Data Service that gives access to the Distribution of the Dataset.
+#- field_name: accessService
+#  label: Access Service
+#  help_text: This property refers to a Data Service that gives access to the Distribution of the Dataset.
 
 - field_name: downloadURL
   label: Download URL
+  preset: multiple_text
   help_text: This property contains a URL that is a direct link to a downloadable file in a given format.
 
 - field_name: hasPolicy
@@ -341,6 +341,7 @@ resource_fields:
 
 - field_name: conformsTo
   label: Conforms to
+  preset: multiple_text
   help_text: This property refers to an established schema to which the described Distribution conforms.
 
 
@@ -348,12 +349,14 @@ resource_fields:
   label: Rights
   help_text: This property refers to a statement that specifies rights associated with the Distribution.
 
-- field_name: hasQualityMeasuremen
-  label: Has quality measuremen
+- field_name: hasQualityMeasurement
+  label: Has quality measurement
+  preset: multiple_text
   help_text: "In GeoDCAT-AP, this property is used to specify 'spatial resolution', as defined in [INSPIRE-MD-REG], [ISO-19115], and [ISO-19115-1]."
 
 - field_name: spatialResolutionInMeters
   label: Spatial resolution in meters
+  preset: multiple_text
   help_text: This property refers to the minimum spatial separation resolvable in a Distribution, measured in metres.
 
 - field_name: temporalResolution
