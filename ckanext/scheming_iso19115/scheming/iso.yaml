@@ -210,6 +210,12 @@ dataset_fields:
   label: Resource Provider
   help_text: Party that supplies the resource [ISO-19115].
 
+- field_name: bbox
+  label: BBOX
+  form_placeholder: Paste a valid GeoJSON geometry
+  help_text:
+
+
 
 
 #######################################
