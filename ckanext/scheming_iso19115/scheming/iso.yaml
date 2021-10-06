@@ -213,7 +213,7 @@ dataset_fields:
 - field_name: bbox
   label: BBOX
   form_placeholder: Paste a valid GeoJSON geometry
-  help_text:
+  help_text: Minimum bounding rectangle within which data is available
 
 
 
