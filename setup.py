@@ -17,15 +17,15 @@ setup(
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.0.1',
 
-    description='''A simple DCAT implementation leveraging over scheming and dcat plugin''',
+    description='''An ISO19115 implementation leveraging over scheming plugin''',
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://bitbucket.org/cioapps/ckanext-scheming_dcat',
+    url='https://bitbucket.org/cioapps/ckanext-scheming_iso19115',
 
     # Author details
-    author='''Patrick Sikalinda''',
-    author_email='''sikalindapatrick@gmail.com''',
+    author='''Carlo Cancellieri''',
+    author_email='''ccancellieri@hotmail.com''',
 
     # Choose your license
     license='AGPL',
