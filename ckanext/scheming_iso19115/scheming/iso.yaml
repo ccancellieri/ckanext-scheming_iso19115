@@ -27,6 +27,9 @@ dataset_fields:
     data-module: slug-preview-target
   form_placeholder: eg. A descriptive title
 
+# - field_name: alternate-title
+#   label: alternate-title  
+
 - field_name: name
   label: URL
   validators: not_empty unicode name_validator package_name_validator
@@ -34,9 +37,9 @@ dataset_fields:
   form_placeholder: eg. my-dataset
   
   # Mandatory
+  # - abstract ??
 - field_name: notes
   label: Description
-  display_property: dcat:Dataset/dct:description
   #TODO multiple language
   form_snippet: markdown.html
   form_placeholder: eg. Some useful notes about the data
@@ -48,81 +51,290 @@ dataset_fields:
 
 #extras_fields:
   
-- field_name: guid
-  # validators: convert_from_extras
-  label: guid
-
 - field_name: access_constraints
-  label: access contstrains
+  label: access-contstrains
 
 - field_name: contact-email
-  label: contact email
+  label: contact-email
 
 - field_name: coupled-resource
   label: coupled-resource
 
 # - field_name: dataset-reference-date
 #   label: dataset-reference-date
+#TODO test multiple text
+
+
+  
+
+- field_name: unique-resource-identifier
+  label: unique-resource-identifier
+
+- field_name: unique-resource-identifier-full
+  label: unique-resource-identifier-full
+
+- field_name: presentation-form
+  label: presentation-form
+
+# used as 'notes'
+# - field_name: abstract
+#   label: abstract
+
+- field_name: purpose
+  label: purpose
+
+- field_name: responsible-organisation
+  label: responsible-organisation
+  #1..*
 
 - field_name: frequency-of-update
   label: frequency-of-update
+
+- field_name: maintenance-note
+  label: maintenance-note
+
+- field_name: progress
+  label: progress
+ 
+- field_name: keywords
+  label: keywords
+
+- field_name: keyword-inspire-theme
+  label: keyword-inspire-theme
+
+- field_name: keyword-controlled-other
+  label: keyword-controlled-other
+
+###############################
+# - field_name: usage
+#   label: usage
+# TODO multiple subfields
+  # - field_name: usage
+  #   label: usage
+  # - field_name: contact-info
+  #   label: contact-info
+###############################
+
+- field_name: limitations-on-public-access
+  label: limitations-on-public-access
+
+- field_name: access-constraints
+  label: access-constraints
+
+- field_name: use-constraints
+  label: use-constraints
+
+- field_name: use-constraints-code
+  label: use-constraints-code
+
+- field_name: legal-constraints-reference-code
+  label: legal-constraints-reference-code
+
+  ###############################
+# - field_name: aggregation-info
+#   label: aggregation-info
+  #*
+  # TODO subfields
+  # - field_name: aggregate-dataset-name
+  #   label: aggregate-dataset-name
+
+  # - field_name: aggregate-dataset-identifier
+  #   label: aggregate-dataset-identifier
+
+  # - field_name: association-type
+  #   label: association-type
+
+  # - field_name: initiative-type
+  #   label: initiative-type
+  
+###############################
+
+- field_name: spatial
+  label: spatial
+
+- field_name: spatial-data-service-type 
+  label: spatial-data-service-type
+
+- field_name: spatial-resolution
+  label: spatial-resolution
+
+- field_name: spatial-resolution-units
+  label: spatial-resolution-units
+  #0..1
+- field_name: equivalent-scale
+  label: equivalent-scale
+
+- field_name: dataset-language
+  label: dataset-language
+  #*
+- field_name: topic-category
+  label: topic-category
+  #*
+- field_name: extent-controlled
+  label: extent-controlled
+  #*
+- field_name: extent-free-text
+  label: extent-free-text
+
+# - field_name: bbox
+#   label: bbox
+  #*
+  # TODO
+
+- field_name: temporal-extent-begin
+  label: temporal-extent-begin
+
+- field_name: temporal-extent-end
+  label: temporal-extent-end
+
+- field_name: vertical-extent
+  label: vertical-extent
+
+- field_name: vertical-extent-crs
+  label: vertical-extent-crs
+
+- field_name: coupled-resource
+  label: coupled-resource
+
+- field_name: additional-information-source
+  label: additional-information-source
+
+- field_name: data-format
+  label: data-format
+
+- field_name: distributor
+  label: distributor
+
+- field_name: resource-locator
+  label: resource-locator
+
+- field_name: resource-locator-identification
+  label: resource-locator-identification
+
+- field_name: conformity-specification
+  label: conformity-specification
+
+- field_name: conformity-pass
+  label: conformity-pass
+
+- field_name: conformity-explanation
+  label: conformity-explanation
+
+- field_name: lineage
+  label: lineage
+
+##########################
+# - field_name: browse-graphic
+#   label: browse-graphic
+  # TODO subfields
+##########################
+- field_name: graphic-preview-type
+  label: graphic-preview-type
 
 - field_name: graphic-preview-description
   label: graphic-preview-description
 
 - field_name: graphic-preview-file
   label: graphic-preview-file
+  preset: resource_url_upload
+##########################
+
+- field_name: author
+  label: author
+  #1..*
+
+##########################
+# - field_name: citation
+#   label: citation
+  #1..*
+  # TODO subfields
+  # - field_name: type
+  #   label: type
+  # - field_name: id
+  #   label: id
+  #   # TODO subfields
+  # - field_name: code
+  #   label: code
+  # - field_name: authority
+  #   label: authority
+  # - field_name: code-space
+  #   label: code-space
+  # - field_name: version
+  #   label: version
+##########################
 
 - field_name: licence
   label: licence
 
-- field_name: lineage
-  label: lineage
+- field_name: keywords
+  label: keywords
 
-- field_name: metadata-date
-  label: metadata-date
+- field_name: version
+  label: version
+
+- field_name: issued
+  label: issued
+  preset: date
+  help_text: This property contains the date of formal issuance (e.g., publication) of the Dataset.
+
+- field_name: publisher
+  label: publisher
+
+- field_name: guid
+  # validators: convert_from_extras
+  label: guid
 
 - field_name: metadata-language
   label: metadata-language
 
-- field_name: completed
-  label: completed
+- field_name: metadata-standard-name
+  label: metadata-standard-name
+
+- field_name: metadata-standard-version
+  label: metadata-standard-version
 
 - field_name: resource-type
   label: resource-type
 
-# - field_name: responsible-party
-#   label: responsible-party
+- field_name: metadata-point-of-contact
+  label: metadata-point-of-contact
 
-- field_name: spatial
-  label: spatial
 
-- field_name: spatial-data-service-type
-  label: spatial-data-service-type
+- field_name: cited-responsible-party
+  label: cited-responsible-party
+
+
+- field_name: metadata-reference-date
+  label: metadata-reference-date
+
+- field_name: metadata-date
+  label: metadata-date
 
 - field_name: spatial-reference-system
   label: spatial-reference-system
 
+- field_name: completed
+  label: completed
+# - field_name: responsible-party
+#   label: responsible-party
+#TODO multiple text
+
+- field_name: spatial-data-service-type
+  label: spatial-data-service-type
+
 # - field_name: spatial_harvester
 #   label: spatial_harvester
-
 # - field_name: harvest_object_id
 #   label: harvest_object_id
-
 # - field_name: harvest_source_id
 #   label: harvest_source_id
-
-- field_name: harvest_source_title
-  label: harvest_source_title
-
-
+# - field_name: harvest_source_title
+#   label: harvest_source_title
 
 # #######################################
 # #######################################
 # # RESOURCE FIELDS
 resource_fields:
-# ################################
-# ################################
 # ################################
 
 - field_name: url
@@ -141,32 +353,14 @@ resource_fields:
 - field_name: resource_locator_function
   label: resource_locator_function
 
-# - field_name: resource_locator_protocol
-#   label: resource_locator_protocol
+- field_name: resource_locator_protocol
+  label: resource_locator_protocol
 
 - field_name: format
   label: format
 
-- field_name: harvest_source_title
-  label: harvest_source_title
-
-# - field_name: harvest_source_title
-#   label: harvest_source_title
-
-  
 
 
-# #- field_name: accessURL
-# #  label: Access URL
-# #  help_text: For INSPIRE metadata, this property SHOULD be used with the URIs of the "Limitations on public access" code list operated by the INSPIRE Registry [INSPIRE-LPA].
-
-# - field_name: availability
-#   label: Availability
-#   help_text: This property indicates how long it is planned to keep the Distribution of the Dataset available.
-
-# - field_name: format
-#   label: Format
-#   preset: resource_format_autocomplete
 
 
 
