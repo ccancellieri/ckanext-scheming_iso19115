@@ -50,9 +50,6 @@ dataset_fields:
   preset: tag_string_autocomplete
 
 #extras_fields:
-  
-- field_name: access_constraints
-  label: access-contstrains
 
 - field_name: contact-email
   label: contact-email
@@ -60,8 +57,19 @@ dataset_fields:
 - field_name: coupled-resource
   label: coupled-resource
 
-# - field_name: dataset-reference-date
-#   label: dataset-reference-date
+- field_name: dataset-reference-date
+  label: dataset-reference-date
+  required: false
+  validators: ignore_missing
+  # repeating_subfields:
+  # - field_name: type
+  #   label: Type
+  # - field_name: value
+  #   label: Value
+  #   required: true
+  # preset: multiple_text
+    
+    
 #TODO test multiple text
 
 
@@ -85,7 +93,10 @@ dataset_fields:
 
 - field_name: responsible-organisation
   label: responsible-organisation
-  #1..*
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
+  #1..* #TODO remove required
 
 - field_name: frequency-of-update
   label: frequency-of-update
@@ -95,16 +106,34 @@ dataset_fields:
 
 - field_name: progress
   label: progress
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
  
 - field_name: keywords
   label: keywords
+  required: false
+  validators: ignore_missing
+  repeating_subfields:
+    - field_name: type
+      label: type
+      required: false
+    - field_name: keyword
+      label: keyword
+      preset: multiple_text
 
 - field_name: keyword-inspire-theme
   label: keyword-inspire-theme
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 - field_name: keyword-controlled-other
   label: keyword-controlled-other
-
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
+  # preset: multiple_text
 ###############################
 # - field_name: usage
 #   label: usage
@@ -117,9 +146,15 @@ dataset_fields:
 
 - field_name: limitations-on-public-access
   label: limitations-on-public-access
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 - field_name: access-constraints
   label: access-constraints
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 - field_name: use-constraints
   label: use-constraints
@@ -151,6 +186,7 @@ dataset_fields:
 
 - field_name: spatial
   label: spatial
+  preset: json_object
 
 - field_name: spatial-data-service-type 
   label: spatial-data-service-type
@@ -164,17 +200,30 @@ dataset_fields:
 - field_name: equivalent-scale
   label: equivalent-scale
 
+  #*
 - field_name: dataset-language
   label: dataset-language
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
   #*
 - field_name: topic-category
   label: topic-category
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
   #*
 - field_name: extent-controlled
   label: extent-controlled
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
   #*
 - field_name: extent-free-text
   label: extent-free-text
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 # - field_name: bbox
 #   label: bbox
@@ -189,21 +238,41 @@ dataset_fields:
 
 - field_name: vertical-extent
   label: vertical-extent
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 - field_name: vertical-extent-crs
   label: vertical-extent-crs
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
+  #*
 - field_name: coupled-resource
   label: coupled-resource
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 - field_name: additional-information-source
   label: additional-information-source
 
 - field_name: data-format
   label: data-format
+  required: false
+  validators: ignore_missing
+  repeating_subfields:
+    - field_name: name
+      label: name
+    - field_name: version
+      label: version
 
 - field_name: distributor
   label: distributor
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 - field_name: resource-locator
   label: resource-locator
@@ -222,6 +291,9 @@ dataset_fields:
 
 - field_name: lineage
   label: lineage
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 ##########################
 # - field_name: browse-graphic
@@ -265,9 +337,9 @@ dataset_fields:
 
 - field_name: licence
   label: licence
-
-- field_name: keywords
-  label: keywords
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
 - field_name: version
   label: version
@@ -315,9 +387,17 @@ dataset_fields:
 
 - field_name: completed
   label: completed
-# - field_name: responsible-party
-#   label: responsible-party
-#TODO multiple text
+
+- field_name: responsible-party
+  label: responsible-party
+  required: false
+  validators: ignore_missing
+  repeating_subfields:
+    - field_name: name
+      label: name
+    - field_name: roles
+      label: roles
+      preset: multiple_text
 
 - field_name: spatial-data-service-type
   label: spatial-data-service-type
