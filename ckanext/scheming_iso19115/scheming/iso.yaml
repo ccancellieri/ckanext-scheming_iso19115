@@ -106,7 +106,6 @@ dataset_fields:
 
 - field_name: progress
   label: progress
-  preset: multiple_text
   required: false
   validators: ignore_missing
  
@@ -196,9 +195,13 @@ dataset_fields:
 
 - field_name: spatial-resolution-units
   label: spatial-resolution-units
-  #0..1
+  
+  #*
 - field_name: equivalent-scale
   label: equivalent-scale
+  preset: multiple_text
+  required: false
+  validators: ignore_missing
 
   #*
 - field_name: dataset-language
@@ -291,9 +294,7 @@ dataset_fields:
 
 - field_name: lineage
   label: lineage
-  preset: multiple_text
   required: false
-  validators: ignore_missing
 
 ##########################
 # - field_name: browse-graphic
