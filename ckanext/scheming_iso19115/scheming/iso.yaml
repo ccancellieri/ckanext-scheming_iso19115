@@ -60,7 +60,7 @@ dataset_fields:
 - field_name: dataset-reference-date
   label: dataset-reference-date
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
   # repeating_subfields:
   # - field_name: type
   #   label: Type
@@ -94,8 +94,8 @@ dataset_fields:
 - field_name: responsible-organisation
   label: responsible-organisation
   preset: multiple_text
-  required: false
-  validators: ignore_missing
+  # required: false
+  # validators: ignore_missing
   #1..* #TODO remove required
 
 - field_name: frequency-of-update
@@ -107,7 +107,7 @@ dataset_fields:
 - field_name: progress
   label: progress
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
  
 - field_name: keywords
   label: keywords
@@ -125,13 +125,13 @@ dataset_fields:
   label: keyword-inspire-theme
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
 - field_name: keyword-controlled-other
   label: keyword-controlled-other
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
   # preset: multiple_text
 ###############################
 # - field_name: usage
@@ -147,13 +147,13 @@ dataset_fields:
   label: limitations-on-public-access
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
 - field_name: access-constraints
   label: access-constraints
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
 - field_name: use-constraints
   label: use-constraints
@@ -201,32 +201,32 @@ dataset_fields:
   label: equivalent-scale
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
   #*
 - field_name: dataset-language
   label: dataset-language
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
   #*
 - field_name: topic-category
   label: topic-category
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
   #*
 - field_name: extent-controlled
   label: extent-controlled
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
   #*
 - field_name: extent-free-text
   label: extent-free-text
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
 # - field_name: bbox
 #   label: bbox
@@ -241,22 +241,22 @@ dataset_fields:
 
 - field_name: vertical-extent
   label: vertical-extent
-  preset: multiple_text
+  preset: json_object
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
 - field_name: vertical-extent-crs
   label: vertical-extent-crs
-  preset: multiple_text
+  preset: json_object
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
   #*
 - field_name: coupled-resource
   label: coupled-resource
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
 - field_name: additional-information-source
   label: additional-information-source
@@ -275,7 +275,7 @@ dataset_fields:
   label: distributor
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
 - field_name: resource-locator
   label: resource-locator
@@ -340,7 +340,7 @@ dataset_fields:
   label: licence
   preset: multiple_text
   required: false
-  validators: ignore_missing
+  # validators: ignore_missing
 
 - field_name: version
   label: version
